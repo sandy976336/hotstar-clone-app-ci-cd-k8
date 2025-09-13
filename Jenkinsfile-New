@@ -49,15 +49,15 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh "docker build -t hotstar ."
-                       sh "docker tag hotstar apatranobis59/hotstar:latest "
-                       sh "docker push apatranobis59/hotstar:latest"
+                       sh "docker tag hotstar sandy976336/hotstar:latest "
+                       sh "docker push sandy976336/hotstar:latest"
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image apatranobis59/hotstar:latest > trivyimage.txt" 
+                sh "trivy image sandy976336/hotstar:latest > trivyimage.txt" 
             }
         }
 		
